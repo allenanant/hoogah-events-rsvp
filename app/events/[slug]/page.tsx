@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -51,12 +52,22 @@ export default async function EventPage({
         <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* LEFT: content */}
           <article className="lg:col-span-2">
-            {/* Cover */}
-            <div
-              className={`relative flex h-56 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br ${event.cover} sm:h-72`}
-            >
-              <span className="text-7xl drop-shadow">{event.glyph}</span>
-              <span className="absolute left-5 top-5 rounded-full bg-cream/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
+            {/* Cover: photo under brand wash */}
+            <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-3xl sm:h-80">
+              <Image
+                src={event.image}
+                alt=""
+                fill
+                priority
+                sizes="(max-width:1024px) 100vw, 760px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/45 to-magenta/70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
+              <span className="relative text-7xl drop-shadow-lg">
+                {event.glyph}
+              </span>
+              <span className="absolute left-5 top-5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy shadow-sm">
                 {event.category}
               </span>
             </div>

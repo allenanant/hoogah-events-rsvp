@@ -14,6 +14,8 @@ export default function Home() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cream to-white" />
+          <div className="pointer-events-none absolute -right-24 -top-28 -z-10 h-96 w-96 rounded-full bg-magenta/15 blur-3xl" />
+          <div className="pointer-events-none absolute right-48 top-4 -z-10 h-72 w-72 rounded-full bg-lime/20 blur-3xl" />
           <div className="mx-auto max-w-6xl px-5 pb-10 pt-16 sm:px-8 sm:pt-24">
             <span className="inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-magenta">
               <span className="h-1.5 w-1.5 rounded-full bg-lime" />

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { getEvent, formatDateParts } from "@/lib/events";
@@ -47,11 +48,17 @@ export default function Confirmation() {
 
       {/* Event summary */}
       <div className="mt-10 overflow-hidden rounded-3xl border border-navy/10 bg-white shadow-sm">
-        <div
-          className={`flex items-center gap-4 bg-gradient-to-br ${event.cover} px-6 py-5`}
-        >
-          <span className="text-4xl">{event.glyph}</span>
-          <div>
+        <div className="relative flex items-center gap-4 overflow-hidden px-6 py-6">
+          <Image
+            src={event.image}
+            alt=""
+            fill
+            sizes="(max-width:768px) 100vw, 640px"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/55 to-magenta/75" />
+          <span className="relative text-4xl drop-shadow">{event.glyph}</span>
+          <div className="relative">
             <p className="text-xs font-semibold uppercase tracking-wider text-cream/80">
               {event.category}
             </p>
