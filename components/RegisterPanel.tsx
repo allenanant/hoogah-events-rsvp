@@ -8,6 +8,7 @@ import {
   spotsLeft,
 } from "@/lib/events";
 import RegisterModal from "./RegisterModal";
+import { Calendar, Clock, Timer, type LucideIcon } from "lucide-react";
 
 export default function RegisterPanel({ event }: { event: HoogahEvent }) {
   const [open, setOpen] = useState(false);
@@ -29,10 +30,10 @@ export default function RegisterPanel({ event }: { event: HoogahEvent }) {
           </div>
 
           <dl className="mt-6 space-y-4 text-sm">
-            <Row icon="📅" label="Date" value={fullDate} />
-            <Row icon="🕖" label="Time" value={`${time} ${event.tz}`} />
+            <Row icon={Calendar} label="Date" value={fullDate} />
+            <Row icon={Clock} label="Time" value={`${time} ${event.tz}`} />
             <Row
-              icon="⏱️"
+              icon={Timer}
               label="Duration"
               value={`${event.durationMins} minutes`}
             />
@@ -83,17 +84,17 @@ export default function RegisterPanel({ event }: { event: HoogahEvent }) {
 }
 
 function Row({
-  icon,
+  icon: Icon,
   label,
   value,
 }: {
-  icon: string;
+  icon: LucideIcon;
   label: string;
   value: string;
 }) {
   return (
     <div className="flex items-start gap-3">
-      <span className="text-base leading-none">{icon}</span>
+      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-magenta" />
       <div>
         <dt className="text-xs uppercase tracking-wide text-navy/45">{label}</dt>
         <dd className="font-medium text-navy">{value}</dd>

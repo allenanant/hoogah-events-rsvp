@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import EventCard from "@/components/EventCard";
+import { Target, Sparkles, Video } from "lucide-react";
 import { getUpcomingEvents } from "@/lib/events";
 
 export default function Home() {
@@ -36,13 +37,13 @@ export default function Home() {
 
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-navy/60">
               <span className="flex items-center gap-2">
-                <span className="text-lg">🎯</span> Curated matches
+                <Target className="h-4 w-4 text-magenta" /> Curated matches
               </span>
               <span className="flex items-center gap-2">
-                <span className="text-lg">💬</span> AI icebreakers
+                <Sparkles className="h-4 w-4 text-magenta" /> AI icebreakers
               </span>
               <span className="flex items-center gap-2">
-                <span className="text-lg">📍</span> 100% virtual
+                <Video className="h-4 w-4 text-magenta" /> 100% virtual
               </span>
             </div>
           </div>

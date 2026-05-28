@@ -1,13 +1,16 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { CalendarX2 } from "lucide-react";
 
 export default function NotFound() {
   return (
     <>
       <Nav />
       <main className="mx-auto flex max-w-xl flex-col items-center px-5 py-28 text-center">
-        <span className="text-5xl">🤷</span>
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-magenta/10">
+          <CalendarX2 className="h-7 w-7 text-magenta" />
+        </span>
         <h1 className="mt-6 font-display text-3xl font-bold text-navy">
           That event slipped away
         </h1>

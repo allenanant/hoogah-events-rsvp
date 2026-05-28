@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Calendar, Clock, Timer, Video, Check, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -6,6 +7,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RegisterPanel from "@/components/RegisterPanel";
 import { events, getEvent, formatDateParts } from "@/lib/events";
+import { getEventIcon } from "@/lib/eventIcons";
 
 export function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -35,6 +37,7 @@ export default async function EventPage({
   if (!event) notFound();
 
   const { weekday, fullDate, time } = formatDateParts(event.startISO);
+  const Icon = getEventIcon(event.slug);
 
   return (
     <>
@@ -64,9 +67,10 @@ export default async function EventPage({
               />
               <div className="absolute inset-0 bg-gradient-to-br from-navy/70 via-navy/30 to-magenta/55" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-transparent" />
-              <span className="relative text-7xl drop-shadow-lg">
-                {event.glyph}
-              </span>
+              <Icon
+                className="relative h-16 w-16 text-cream drop-shadow-lg"
+                strokeWidth={1.5}
+              />
               <span className="absolute left-5 top-5 rounded-full bg-cream/95 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy shadow-sm">
                 {event.category}
               </span>
@@ -79,10 +83,10 @@ export default async function EventPage({
 
             {/* Meta row */}
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 rounded-2xl border border-navy/10 bg-white px-5 py-4 text-sm">
-              <Meta icon="📅" value={`${weekday}, ${fullDate}`} />
-              <Meta icon="🕖" value={`${time} ${event.tz}`} />
-              <Meta icon="⏱️" value={`${event.durationMins} min`} />
-              <Meta icon="📍" value={event.format} />
+              <Meta icon={Calendar} value={`${weekday}, ${fullDate}`} />
+              <Meta icon={Clock} value={`${time} ${event.tz}`} />
+              <Meta icon={Timer} value={`${event.durationMins} min`} />
+              <Meta icon={Video} value={event.format} />
             </div>
 
             {/* About */}
@@ -99,8 +103,8 @@ export default async function EventPage({
               <ul className="space-y-3">
                 {event.takeaways.map((t, i) => (
                   <li key={i} className="flex items-start gap-3 text-[15px] text-navy/80">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-[11px] font-bold text-navy">
-                      ✓
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-navy">
+                      <Check className="h-3 w-3" strokeWidth={3} />
                     </span>
                     {t}
                   </li>
@@ -110,14 +114,22 @@ export default async function EventPage({
 
             {/* Agenda */}
             <Section title="Run of show">
-              <ol className="relative border-l border-navy/15 pl-6">
+              <ol>
                 {event.agenda.map((a, i) => (
-                  <li key={i} className="relative pb-5 last:pb-0">
-                    <span className="absolute -left-[27px] top-1 flex h-3 w-3 items-center justify-center rounded-full border-2 border-magenta bg-cream" />
-                    <span className="font-display text-sm font-bold text-magenta">
-                      {a.time}
-                    </span>
-                    <p className="text-[15px] text-navy/80">{a.label}</p>
+                  <li key={i} className="flex gap-4 pb-6 last:pb-0">
+                    {/* rail: dot stays centered on the connector line */}
+                    <div className="relative flex w-3 shrink-0 justify-center">
+                      {i < event.agenda.length - 1 && (
+                        <span className="absolute left-1/2 top-1.5 -bottom-6 w-px -translate-x-1/2 bg-navy/15" />
+                      )}
+                      <span className="relative z-10 mt-1 h-3 w-3 rounded-full border-2 border-magenta bg-cream" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="font-display text-sm font-bold text-magenta">
+                        {a.time}
+                      </span>
+                      <p className="text-[15px] text-navy/80">{a.label}</p>
+                    </div>
                   </li>
                 ))}
               </ol>
@@ -143,10 +155,10 @@ export default async function EventPage({
   );
 }
 
-function Meta({ icon, value }: { icon: string; value: string }) {
+function Meta({ icon: Icon, value }: { icon: LucideIcon; value: string }) {
   return (
     <span className="flex items-center gap-2 text-navy/75">
-      <span>{icon}</span>
+      <Icon className="h-4 w-4 text-magenta" />
       <span className="font-medium">{value}</span>
     </span>
   );

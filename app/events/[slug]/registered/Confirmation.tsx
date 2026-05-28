@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { Check, Mail, BellRing, Link2, Lock, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { getEvent, formatDateParts } from "@/lib/events";
+import { getEventIcon } from "@/lib/eventIcons";
 
 export default function Confirmation() {
   const params = useParams<{ slug: string }>();
@@ -26,13 +28,14 @@ export default function Confirmation() {
 
   const { fullDate, time } = formatDateParts(event.startISO);
   const firstName = name ? name.split(" ")[0] : null;
+  const Icon = getEventIcon(event.slug);
 
   return (
     <main className="mx-auto max-w-2xl px-5 py-12 sm:py-16">
       {/* Success */}
       <div className="animate-pop-in flex flex-col items-center text-center">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-lime text-3xl shadow-sm">
-          ✓
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-lime text-navy shadow-sm">
+          <Check className="h-9 w-9" strokeWidth={2.5} />
         </div>
         <span className="mt-6 text-xs font-semibold uppercase tracking-wider text-magenta">
           You're registered
@@ -57,7 +60,7 @@ export default function Confirmation() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-navy/80 via-navy/45 to-magenta/65" />
-          <span className="relative text-4xl drop-shadow">{event.glyph}</span>
+          <Icon className="relative h-9 w-9 text-cream drop-shadow" strokeWidth={1.75} />
           <div className="relative">
             <p className="text-xs font-semibold uppercase tracking-wider text-cream/80">
               {event.category}
@@ -81,17 +84,17 @@ export default function Confirmation() {
         </h3>
         <ul className="mt-4 space-y-4">
           <Step
-            icon="📧"
+            icon={Mail}
             title="Confirmation email on its way"
             body="A confirmation with the event details just landed in your inbox."
           />
           <Step
-            icon="⏰"
+            icon={BellRing}
             title="Join link 30 minutes before"
             body="We email and text you the link to join 30 minutes before the event starts — so it's impossible to miss."
           />
           <Step
-            icon="🔗"
+            icon={Link2}
             title="It'll also show up right here"
             body="Bookmark this page. The live join link unlocks below when the room is about to open."
           />
@@ -100,8 +103,8 @@ export default function Confirmation() {
 
       {/* Join link placeholder */}
       <div className="mt-6 flex flex-col items-center rounded-3xl border border-dashed border-navy/20 bg-white px-6 py-8 text-center">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-navy/5 text-xl">
-          🔒
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-navy/5">
+          <Lock className="h-5 w-5 text-navy/50" />
         </span>
         <p className="mt-3 font-semibold text-navy">Join link locked</p>
         <p className="mt-1 max-w-sm text-sm text-navy/60">
@@ -145,18 +148,18 @@ function Fact({ label, value }: { label: string; value: string }) {
 }
 
 function Step({
-  icon,
+  icon: Icon,
   title,
   body,
 }: {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   body: string;
 }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-lg shadow-sm">
-        {icon}
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-magenta shadow-sm">
+        <Icon className="h-4 w-4" />
       </span>
       <div>
         <p className="font-semibold text-navy">{title}</p>

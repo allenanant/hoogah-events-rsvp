@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getEventIcon } from "@/lib/eventIcons";
 import {
   HoogahEvent,
   formatDateParts,
@@ -11,6 +12,7 @@ export default function EventCard({ event }: { event: HoogahEvent }) {
   const { weekday, month, day, time } = formatDateParts(event.startISO);
   const left = spotsLeft(event);
   const almostFull = left <= 10;
+  const Icon = getEventIcon(event.slug);
 
   return (
     <Link
@@ -38,8 +40,8 @@ export default function EventCard({ event }: { event: HoogahEvent }) {
           </span>
           <span className="font-display text-lg font-bold text-navy">{day}</span>
         </span>
-        <span className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-cream/15 text-2xl ring-1 ring-cream/30 backdrop-blur-md">
-          {event.glyph}
+        <span className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-cream/15 text-cream ring-1 ring-cream/30 backdrop-blur-md">
+          <Icon className="h-5 w-5" strokeWidth={2} />
         </span>
       </div>
 
