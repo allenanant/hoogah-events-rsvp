@@ -62,8 +62,8 @@ export default async function EventPage({
                 sizes="(max-width:1024px) 100vw, 760px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/45 to-magenta/70" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy/70 via-navy/30 to-magenta/55" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-transparent" />
               <span className="relative text-7xl drop-shadow-lg">
                 {event.glyph}
               </span>

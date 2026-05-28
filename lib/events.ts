@@ -66,7 +66,7 @@ export const events: HoogahEvent[] = [
     registered: 27,
     cover: "from-[#1a0a5e] via-[#3a1f8f] to-[#a8198b]",
     glyph: "🌃",
-    image: "/covers/founders-night-build-in-public.jpg",
+    image: "/hoogah-events-rsvp/covers/founders-night-build-in-public.jpg",
   },
   {
     slug: "the-cold-outreach-room",
@@ -98,7 +98,7 @@ export const events: HoogahEvent[] = [
     registered: 19,
     cover: "from-[#a8198b] via-[#c026a0] to-[#1a0a5e]",
     glyph: "✉️",
-    image: "/covers/the-cold-outreach-room.jpg",
+    image: "/hoogah-events-rsvp/covers/the-cold-outreach-room.jpg",
   },
   {
     slug: "women-in-growth-mixer",
@@ -130,7 +130,7 @@ export const events: HoogahEvent[] = [
     registered: 41,
     cover: "from-[#2a1a7a] via-[#a8198b] to-[#c8ff00]",
     glyph: "🥂",
-    image: "/covers/women-in-growth-mixer.jpg",
+    image: "/hoogah-events-rsvp/covers/women-in-growth-mixer.jpg",
   },
   {
     slug: "ai-tools-show-and-tell",
@@ -162,7 +162,7 @@ export const events: HoogahEvent[] = [
     registered: 12,
     cover: "from-[#1a0a5e] via-[#5b2bc2] to-[#a8198b]",
     glyph: "🤖",
-    image: "/covers/ai-tools-show-and-tell.jpg",
+    image: "/hoogah-events-rsvp/covers/ai-tools-show-and-tell.jpg",
   },
   {
     slug: "first-90-days-new-role",
@@ -194,7 +194,7 @@ export const events: HoogahEvent[] = [
     registered: 8,
     cover: "from-[#a8198b] via-[#7a1f9c] to-[#1a0a5e]",
     glyph: "🚀",
-    image: "/covers/first-90-days-new-role.jpg",
+    image: "/hoogah-events-rsvp/covers/first-90-days-new-role.jpg",
   },
   {
     slug: "portfolio-and-pricing-clinic",
@@ -226,7 +226,7 @@ export const events: HoogahEvent[] = [
     registered: 22,
     cover: "from-[#2a1a7a] via-[#a8198b] to-[#d83bb8]",
     glyph: "🎨",
-    image: "/covers/portfolio-and-pricing-clinic.jpg",
+    image: "/hoogah-events-rsvp/covers/portfolio-and-pricing-clinic.jpg",
   },
 ];
 

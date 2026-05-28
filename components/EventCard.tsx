@@ -26,8 +26,8 @@ export default function EventCard({ event }: { event: HoogahEvent }) {
           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 400px"
           className="object-cover transition-transform duration-[650ms] ease-out group-hover:scale-[1.07]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/40 to-magenta/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/70 via-navy/25 to-magenta/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-transparent" />
 
         <span className="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-navy shadow-sm">
           {event.category}

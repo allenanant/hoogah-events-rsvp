@@ -56,7 +56,7 @@ export default function Confirmation() {
             sizes="(max-width:768px) 100vw, 640px"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/55 to-magenta/75" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/80 via-navy/45 to-magenta/65" />
           <span className="relative text-4xl drop-shadow">{event.glyph}</span>
           <div className="relative">
             <p className="text-xs font-semibold uppercase tracking-wider text-cream/80">
