@@ -5,12 +5,11 @@ export default function Nav() {
     <header className="sticky top-0 z-30 border-b border-navy/10 bg-cream/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy text-lime font-display text-lg font-bold leading-none">
-            h
-          </span>
-          <span className="font-display text-xl font-bold tracking-tight text-navy">
-            hoogah
-          </span>
+          <img
+            src="/hoogah-events-rsvp/brand/logo-color-cropped.png"
+            alt="Hoogah"
+            className="h-7 w-auto"
+          />
           <span className="ml-1 hidden rounded-full bg-magenta/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-magenta sm:inline">
             Events
           </span>
